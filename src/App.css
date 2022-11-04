@@ -1,10 +1,14 @@
 .App {
-  text-align: center;
+  text-align: center
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+html {
+  background-color: rgba(255, 243, 182, 0.3)
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,11 +32,76 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgba(247, 169, 59, 0.65);
+  color: white;
 }
+
+.nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.travelPicture {
+  width: 100%;
+  float: left;
+  padding-top: 75px;
+  padding-left: 75px;
+  width:  700px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.loginForm {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
+  width: 40%;
+  float: right;
+}
+
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 75%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.formButton {
+  width: 75%;
+  background-color: rgba(247, 169, 59, 0.65); 
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;  
+  border-radius: 3px white;
+  margin: 4px 0;
+}
+
