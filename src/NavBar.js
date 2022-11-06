@@ -15,12 +15,12 @@ function NavBar() {
             <Link style={NavStyle} to='/about'>
                 <li>About</li>
             </Link>
-            <Link style={NavStyle} to='/login'>
+            {/* <Link style={NavStyle} to='/login'>
                 <li>Login</li>
             </Link>
             <Link style={NavStyle} to='/trips'>
             <   li>trips</li>
-            </Link>
+            </Link> */}
         </ul>
     </nav>
   );

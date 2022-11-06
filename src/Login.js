@@ -1,6 +1,16 @@
+import React, { useState } from 'react';
 import './App.css';
 
-function Login() {
+function Login({ user, setUser }) {
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword ] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(e)
+        
+    }
 
   return (
 
@@ -8,22 +18,23 @@ function Login() {
         <img className="travelPicture" src="plane-pic.jpg"/>
 
         <div className="loginForm">
-        {/* <h3 className='loginFormTitle'>Login</h3> */}
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
                     type='text'
-                    name='name' 
+                    id='username' 
                     placeholder='Username' 
-                    //   value={newHousewife.name}
-                    //   onChange={handleChange}
+                    autoComplete="off"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                 />
                 <input 
-                    type='text' 
-                    name='password' 
+                    type='password' 
+                    id='password' 
                     placeholder='Password' 
-                    //   value={newHousewife.image}
-                    //   onChange={handleChange}
+                    autoComplete="current-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                 />
                 <button className='formButton' type='submit'>Log in</button>
