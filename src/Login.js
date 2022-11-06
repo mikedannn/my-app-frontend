@@ -8,7 +8,13 @@ function Login({ user, setUser }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e)
+        fetch(`http://localhost:9292/users/${username}/${password}`, {
+            method: "GET", 
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password})
+        })
+            .then(resp => resp.json())
+            .then(console.log)
         
     }
 
