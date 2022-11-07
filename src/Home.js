@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import UserContainer from './UserContainer';
 import './App.css';
 
-function Home() {
+
+function Home({ users }) {
 
   return (
 
@@ -9,7 +11,7 @@ function Home() {
         <img className="travelPicture" src="plane-pic.jpg"/>
 
         <div className="home">
-
+          <UserContainer users={users}/>
     
         </div>
     </div>

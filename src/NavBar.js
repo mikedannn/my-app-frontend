@@ -15,7 +15,7 @@ function NavBar() {
             <Link style={NavStyle} to='/about'>
                 <li>About</li>
             </Link>
-            <Link style={NavStyle} to='/travelers'>
+            <Link style={NavStyle} to='/users'>
                 <li>Travelers</li>
             </Link>
             <Link style={NavStyle} to='/trips'>
