@@ -6,8 +6,7 @@ import './App.css';
 const newUser = {
   full_name: "",
   username: "",
-  password: "",
-  date_of_birth: ""
+  password: ""
 }
 
 
@@ -23,7 +22,6 @@ function Home({ users, setUsers }) {
   function handleAddNewUser(e) {
     setNewUserData({...newUserData, 
       [e.target.name]: e.target.value})
-      console.log(newUserData)
   }
 
   function handleSubmit(e) {
@@ -37,7 +35,6 @@ function Home({ users, setUsers }) {
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log(data)
         setUsers((currentUsers) => [data, ...currentUsers]);
         setNewUserData(newUser);
         handleCreateUserClick();

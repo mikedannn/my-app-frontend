@@ -1,12 +1,14 @@
-import { useNavigate } from "react-router-dom";
+
 import './App.css';
 
 function Users({ user: { full_name, username, id } }) {
 
     return (
-        <div className="userBox" >
-            <h1>{full_name}</h1>
-            <p>Username: {username} </p>
+        <div className="listItem" >
+            <div className="listItemContent">
+                <h1>{full_name}</h1>
+                <p>Username: {username} </p>
+            </div>
         </div>
     );
 }

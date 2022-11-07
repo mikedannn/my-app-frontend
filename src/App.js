@@ -2,7 +2,6 @@ import Home from './Home';
 import About from './About';
 import NavBar from './NavBar';
 import UserContainer from './UserContainer';
-import UserData from './UserData';
 import TripContainer from './TripContainer';
 import DestinationContainer from './DestinationContainer';
 import React, { useEffect, useState } from 'react';

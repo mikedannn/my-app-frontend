@@ -146,12 +146,12 @@ input[type=submit]:hover {
   text-justify: newspaper;
 }
 
-.userContainerList {
+/* .userContainerList {
   text-align: right;
   list-style: none;
-}
+} */
 
-.userBox {
+/* .userBox {
   margin-right: 6px;
   margin-left: 6px;
   width: 750px;
@@ -162,7 +162,7 @@ input[type=submit]:hover {
   text-align: right;
   margin-top: 6px;
   margin-bottom: 6px;
-}
+} */
 
 .destinationCard {
   margin-right: 6px;
@@ -176,4 +176,24 @@ input[type=submit]:hover {
 .tripNote {
   color: black;
   font-size: 10px;
+}
+
+.userWrapper {
+  max-width: 700px;
+  margin: 50px auto;
+}
+
+.list {
+  background: rgba(252, 149, 124, 0.3);
+  border-radius: 2px;
+  list-style: none;
+  padding: 10px 20px;
+}
+
+.listItem {
+  display: flex;
+  margin: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

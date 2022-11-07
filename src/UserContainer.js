@@ -5,7 +5,15 @@ function UserContainer({ users }) {
     
   const userList = users.map((user) => <Users key={user.id} user={user} />);
 
-  return userList;
+  return (
+
+    <div className="userWrapper">
+      <ul className="list">
+        {userList}
+      </ul>
+    </div>
+    
+  );
 }
 
 export default UserContainer;
