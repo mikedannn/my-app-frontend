@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-
+import './App.css';
 
 function Users({ user: { full_name, username, id } }) {
 
