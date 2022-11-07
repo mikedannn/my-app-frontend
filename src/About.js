@@ -5,7 +5,6 @@ function About() {
     return (
 
       <div className="aboutPage">
-
             <div>
                 <img className='travelPicture2' src='home-travel-pic.jpg' />
             </div>
