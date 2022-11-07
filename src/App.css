@@ -155,12 +155,9 @@ input[type=submit]:hover {
   float: right;
   margin-right: 6px;
   margin-left: 6px;
-  width: 600px;
-  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-  height: 100px;
+  width: 900px;
+  height: 300px;
   border-radius: 20px;
-  backdrop-filter: blur(14px);
-  background-color: rgba(255, 255, 255, 0.2);
   padding: 40px;
   text-align: right;
   margin-top: 6px;
@@ -170,13 +167,13 @@ input[type=submit]:hover {
 .destinationCard {
   margin-right: 6px;
   margin-left: 6px;
-  width: 500px;
-  height:100px;
-  backdrop-filter: blur(14px);
-  background-color: rgba(255, 255, 255, 0.2);
   padding: 40px;
-  text-align: right;
+  text-align: left;
   margin-top: 6px;
   margin-bottom: 6px;
 }
 
+.tripNote {
+  color: black;
+  font-size: 10px;
+}

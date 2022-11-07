@@ -23,7 +23,7 @@ function App() {
       .then(setUsers);
   }, []);
 
-  const tripUrl = "http://localhost:9292/users";
+  const tripUrl = "http://localhost:9292/trips";
 
   useEffect(() => {
     fetch(tripUrl)
