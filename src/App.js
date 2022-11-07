@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import UserContainer from './UserContainer';
 import UserData from './UserData';
 import TripContainer from './TripContainer';
+import DestinationContainer from './DestinationContainer';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -48,7 +49,7 @@ function App() {
           <Route exact path='/about' element={<About />}/>
           <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers}/>}/>
           <Route exact path='/trips' element={<TripContainer trips={trips}/>}/>
-          <Route exact path='/destinations' element={<TripContainer trips={trips}/>}/>
+          <Route exact path='/destinations' element={<DestinationContainer destinations={destinations}/>}/>
         </Routes>
       </div>
     </Router>
