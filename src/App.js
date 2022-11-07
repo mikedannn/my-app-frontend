@@ -44,10 +44,11 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route exact path='/' element={<Home users={users} setUsers = {setUsers}/>}/>
+          <Route exact path='/' element={<Home users={users} setUsers={setUsers}/>}/>
           <Route exact path='/about' element={<About />}/>
-          <Route exact path='/trips' element={<TripContainer trips ={trips}/>}/>
-          <Route exact path='/destinations' element={<TripContainer trips ={trips}/>}/>
+          <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers}/>}/>
+          <Route exact path='/trips' element={<TripContainer trips={trips}/>}/>
+          <Route exact path='/destinations' element={<TripContainer trips={trips}/>}/>
         </Routes>
       </div>
     </Router>

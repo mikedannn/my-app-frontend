@@ -10,10 +10,10 @@ function Home({ users }) {
     <div>
         <img className="travelPicture" src="plane-pic.jpg"/>
 
-        <div className="home">
+        {/* <div className="userContainerList">
+          <h2>Travelers</h2>
           <UserContainer users={users}/>
-    
-        </div>
+        </div> */}
     </div>
   );
 }
