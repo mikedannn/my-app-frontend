@@ -154,8 +154,8 @@ input[type=submit]:hover {
 .userBox {
   margin-right: 6px;
   margin-left: 6px;
-  width: 500px;
-  height:100px;
+  width: 750px;
+  height:500px;
   backdrop-filter: blur(14px);
   background-color: rgba(255, 255, 255, 0.2);
   padding: 40px;

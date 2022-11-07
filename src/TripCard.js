@@ -1,13 +1,13 @@
 import './App.css';
 
-function TripCard({ trip: { id, trip_notes, start_date, end_date } }) {
+function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destination: { city_name, country_name } } }) {
+    
 
     return (
         <div className="userBox">
-            <h1>{id}</h1>
-            <p className="tripNote">{trip_notes}</p>
-            <p>Started: {start_date}</p>
-            <p>Ended: {end_date}</p>
+            <h1>My Trip to {city_name}, {country_name}!</h1>
+            <p className="tripNote">My Notes: {trip_notes}</p>
+            <p>Taken by: {user.username}</p>
         </div>
     );
 }
