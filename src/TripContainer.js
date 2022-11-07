@@ -1,5 +1,6 @@
 import './App.css';
 import TripCard from './TripCard';
+import TripInformation from './TripInformation';
 
 function TripContainer ({ trips }) {
     
