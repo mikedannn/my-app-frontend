@@ -1,8 +1,10 @@
 import Home from './Home';
+import About from './About';
 import NavBar from './NavBar';
 import UserContainer from './UserContainer';
+import UserData from './UserData';
+import TripContainer from './TripContainer';
 import React, { useEffect, useState } from 'react';
-import About from './About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
