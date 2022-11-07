@@ -1,6 +1,6 @@
+import Home from './Home';
 import NavBar from './NavBar';
 import React, { useEffect, useState } from 'react';
-import Home from './Home';
 import About from './About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';

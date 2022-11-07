@@ -9,9 +9,6 @@ function Home() {
         <img className="travelPicture" src="plane-pic.jpg"/>
 
         <div className="home">
-        
-                <button className='formButton' type='submit'>Log in</button>
-                <button className='formButton' type='submit'>Sign up</button>
 
     
         </div>
