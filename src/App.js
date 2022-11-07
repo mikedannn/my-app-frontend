@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import NavBar from './NavBar';
 import React, { useEffect, useState } from 'react';
 import Home from './Home';
+import About from './About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -13,6 +13,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
         </Routes>
       </div>
     </Router>

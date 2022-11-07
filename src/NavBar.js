@@ -10,17 +10,20 @@ function NavBar() {
 
   return (
     <nav>
-      <h1>My Travel Log</h1>
+      <h1>Travel Log</h1>
         <ul className='nav-links'>
             <Link style={NavStyle} to='/about'>
                 <li>About</li>
             </Link>
-            {/* <Link style={NavStyle} to='/login'>
-                <li>Login</li>
+            <Link style={NavStyle} to='/travelers'>
+                <li>Travelers</li>
             </Link>
             <Link style={NavStyle} to='/trips'>
-            <   li>trips</li>
-            </Link> */}
+                <li>Trips</li>
+            </Link>
+            <Link style={NavStyle} to='/destinations'>
+                <li>Destinations</li>
+            </Link>
         </ul>
     </nav>
   );
