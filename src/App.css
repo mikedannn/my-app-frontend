@@ -97,6 +97,16 @@ input[type=password], select {
   box-sizing: border-box;
 }
 
+input[type=datetime-local], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type=submit] {
   width: 75%;
   background-color: #04AA6D;

@@ -10,7 +10,8 @@ import './App.css';
 function TripInformation( { users, trips, setTrips, destinations, setDestinations } ) {
 
     const [userData, setUserData] = useState([]);
-    const [destination, setDestination] = useState("");
+    const [destinationId, setDestinationId] = useState("");
+    const [userId, setUserId] = ("");
 
     let navigate = useNavigate()
     const handleSubmitTrip = (e) => {
@@ -62,22 +63,64 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
 
     return (
 
-        <div>
+        <div> 
+            <h2>Post Your Trip:</h2>
             {/* <form  onSubmit={handleSubmit} className="tripForm"> */}
             <form className="tripForm">
                 <label>
                 Traveler:
                 <select
                     placeholder="Select Traveler"
-                    // value={newUserData.full_name}
-                    // onChange={handleAddNewUser}
+                    onChange={(e) => setUserId(e.target.value)}
                 >
+                    <option value="none">Select Traveler:</option>
+                    {users.map((user) => (
+                        <option key={user.id} value={user.id}>
+                            {user.full_name} | {user.username}
+                    </option>
+                    ))}
                 </select>
+                </label>
+                <label>
+                Destination:
+                <select
+                    placeholder="Select Destination"
+                    onChange={(e) => setDestinationId(e.target.value)}
+                >
+                    <option value="none">Select Destination:</option>
+                    {destinations.map((destination) => (
+                        <option key={destination.id} value={destination.id}>
+                            {destination.city_name} | {destination.country_name}
+                    </option>
+                    ))}
+                </select>
+                </label>
+                <label>
+                Start Date:
+                <input type="datetime-local">
+                </input>
+                </label>
+                <label>
+                End Date:
+                <input type="datetime-local">
+                </input>
+                </label>
+                <label>
+                Trip Notes:
+                <input
+                    className="tripNotes"
+                    type="text"
+                    name="trip_notes"
+                    placeholder="Trip Notes"
+                    // value={newUserData.password}
+                    // onChange={handleAddNewUser}
+                    >
+                </input>
                 </label>
             <br/>
             <br/>
             </form>
-            hi
+        
         </div>
     );
   }
