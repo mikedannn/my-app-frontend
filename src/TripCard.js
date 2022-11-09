@@ -4,10 +4,14 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
     
 
     return (
-        <div className="userBox">
-            <h1>My Trip to {city_name}, {country_name}!</h1>
-            <p className="tripNote">My Notes: {trip_notes}</p>
-            <p>Taken by: {user.username}</p>
+        <div className="tripCard">
+            <div className="cardHeader">
+                <h1>{user.full_name}'s trip to {city_name}, {country_name}!</h1>
+            </div>
+            <div className="cardContainer">
+                <p className="tripNote">My Notes: {trip_notes}</p>
+                <p>Taken by: {user.username}</p>
+            </div>
         </div>
     );
 }

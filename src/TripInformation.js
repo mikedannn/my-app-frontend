@@ -63,13 +63,15 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
 
     return (
 
-        <div> 
-            <h2>Post Your Trip:</h2>
+        <div className="tripForm"> 
             {/* <form  onSubmit={handleSubmit} className="tripForm"> */}
-            <form className="tripForm">
+            <form>
+            <h2>Add Your Trip</h2>
                 <label>
                 Traveler:
+                <br/>
                 <select
+                    className="customSelect"
                     placeholder="Select Traveler"
                     onChange={(e) => setUserId(e.target.value)}
                 >
@@ -83,7 +85,9 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 </label>
                 <label>
                 Destination:
+                <br/>
                 <select
+                    className="customSelect"
                     placeholder="Select Destination"
                     onChange={(e) => setDestinationId(e.target.value)}
                 >
@@ -97,16 +101,19 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 </label>
                 <label>
                 Start Date:
+                <br/>
                 <input type="datetime-local">
                 </input>
                 </label>
                 <label>
                 End Date:
+                <br/>
                 <input type="datetime-local">
                 </input>
                 </label>
                 <label>
                 Trip Notes:
+                <br/>
                 <input
                     className="tripNotes"
                     type="text"

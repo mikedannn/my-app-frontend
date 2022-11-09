@@ -85,6 +85,8 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: white;
+  color: tan;
 }
 
 input[type=password], select {
@@ -95,6 +97,7 @@ input[type=password], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: tan;
 }
 
 input[type=datetime-local], select {
@@ -105,6 +108,18 @@ input[type=datetime-local], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: tan;
+}
+
+input[type=select], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: tan;
 }
 
 input[type=submit] {
@@ -122,6 +137,13 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+label {
+  text-align: left;
+  display: block;
+  flex-direction:column;
+}
+
+
 .formButton {
   width: 75%;
   background-color: rgba(247, 169, 59, 0.65); 
@@ -133,6 +155,29 @@ input[type=submit]:hover {
   font-size: 22px;  
   border-radius: 3px white;
   margin: 4px 0;
+}
+
+.tripButton {
+  /* width: 100px;
+  background-color: rgba(247, 169, 59, 0.65); 
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;  
+  border-radius: 3px white;
+  margin: 4px 0;
+  float: left; */
+
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .aboutDescription {
@@ -156,23 +201,13 @@ input[type=submit]:hover {
   text-justify: newspaper;
 }
 
-/* .userContainerList {
-  text-align: right;
-  list-style: none;
-} */
+.tripForm {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  text-align: center;
+  width: 40%;
+}
 
-/* .userBox {
-  margin-right: 6px;
-  margin-left: 6px;
-  width: 750px;
-  height:500px;
-  backdrop-filter: blur(14px);
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 40px;
-  text-align: right;
-  margin-top: 6px;
-  margin-bottom: 6px;
-} */
 
 .destinationCard {
   margin-right: 6px;
@@ -183,10 +218,32 @@ input[type=submit]:hover {
   margin-bottom: 6px;
 }
 
-.tripNote {
-  color: black;
-  font-size: 10px;
+.listOfTrips {
+  padding-top: 100px
 }
+
+.tripCard {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  border: 5px white solid;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
+
+.cardHeader {
+  height: 30%;
+  background: rgba(252, 149, 124, 0.5);
+  color: white;
+  text-align: center;
+}
+
+.cardContainer {
+  padding: 2px 16px;
+  padding-bottom: 5px;
+  padding-top: 5px
+}
+
 
 .userWrapper {
   max-width: 700px;
