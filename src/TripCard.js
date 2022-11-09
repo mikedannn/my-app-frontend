@@ -12,6 +12,11 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
                 <p className="tripNote">My Notes: {trip_notes}</p>
                 <p>Taken by: {user.username}</p>
             </div>
+            <div className="cardButtons">
+                <button id="editBtn" ng-click="editItem (item)">✏️</button>
+                <br/>
+                <button id="deleteBtn" ng-click="deleteItem (item)">🗑</button>
+            </div>
         </div>
     );
 }
