@@ -124,10 +124,10 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     >
                 </input>
                 </label>
-            <br/>
-            <br/>
+                <br/>
+                <button id="tripButton"type="submit">Click Me!</button>
+                <br/>
             </form>
-        
         </div>
     );
   }
