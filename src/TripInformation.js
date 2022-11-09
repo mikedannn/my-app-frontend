@@ -7,65 +7,55 @@ import './App.css';
 
 
 
+const newTrip = {
+    user_id: "",
+    destination_id: "",
+    start_date: "",
+    end_date: "",
+    trip_notes: ""
+}
+
 function TripInformation( { users, trips, setTrips, destinations, setDestinations } ) {
 
-    const [userData, setUserData] = useState([]);
-    const [destinationId, setDestinationId] = useState("");
-    const [userId, setUserId] = ("");
+    const [newTripData, setNewTripData] = useState(newTrip);
 
+    const tripUrl = "http://localhost:9292/trip";
+    
+    
     let navigate = useNavigate()
-    const handleSubmitTrip = (e) => {
-      navigate.push(`/users`)
+    const handleSubmitTripClick = (e) => {
+      navigate.push(`/trips`)
     };
+
+    function handleAddNewTripData(e) {
+        setNewTripData({...newTripData, 
+            [e.target.name]: e.target.value})
+    };
+
     
-    let {id} = useParams();
-    let userUrl = "http://localhost:9292/users"
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch(tripUrl, {
+            method: "POST", 
+            headers: {
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify(newTripData)
+        })
+            .then((r) => r.json())
+            .then((data) => {
+                setTrips((currentTrips) => [data, ...currentTrips]);
+                setNewTripData(newTrip);
+                handleSubmitTripClick();
+            })
+    }
 
-    useEffect(() => {
-        fetch(userUrl + id)
-          .then((resp) => resp.json())
-          .then(setUserData);
-    }, [id])  
-
-
-    // const newTrip = {
-    //     user_id: user_id,
-    //     destination_id: destination_id,
-    //     start_date: start_date,
-    //     end_date: end_date,
-    //     trip_notes: trip_notes
-    // }
-
-    // function handleAddNewTrip(e) {
-    //     setNewTripData({...newTripData, 
-    //       [e.target.name]: e.target.value})
-    // };
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     fetch('http://localhost:9292/trips', {
-    //       method: "POST",
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify(newTrip)
-    //     })
-    //       .then((r) => r.json())
-    //       .then((data) => {
-    //         console.log(data)
-    //         setTrips((currentTrips) => [data, ...currentTrips]);
-    //         handleSubmitTrip();
-    //     })
-    
-    // };
-
-    // console.log(newTrip);
+    console.log(newTrip);
 
     return (
 
         <div className="tripForm"> 
-            {/* <form  onSubmit={handleSubmit} className="tripForm"> */}
-            <form>
+            <form onSubmit={handleSubmit}>
             <h2>Add Your Trip</h2>
                 <label>
                 Traveler:
@@ -73,7 +63,8 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 <select
                     className="customSelect"
                     placeholder="Select Traveler"
-                    onChange={(e) => setUserId(e.target.value)}
+                    name="user_id"
+                    onChange={(e) => handleAddNewTripData(e.target.value)}
                 >
                     <option value="none">Select Traveler:</option>
                     {users.map((user) => (
@@ -89,7 +80,8 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 <select
                     className="customSelect"
                     placeholder="Select Destination"
-                    onChange={(e) => setDestinationId(e.target.value)}
+                    name="destination_id"
+                    onChange={(e) => handleAddNewTripData(e.target.value)}
                 >
                     <option value="none">Select Destination:</option>
                     {destinations.map((destination) => (
@@ -102,13 +94,17 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 <label>
                 Start Date:
                 <br/>
-                <input type="datetime-local">
+                <input 
+                    id="start_date"
+                    name="start_date"
+                    type="date"
+                >
                 </input>
                 </label>
                 <label>
                 End Date:
                 <br/>
-                <input type="datetime-local">
+                <input type="date">
                 </input>
                 </label>
                 <label>
