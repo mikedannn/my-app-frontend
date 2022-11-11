@@ -18,8 +18,6 @@ const newTrip = {
 function TripInformation( { users, trips, setTrips, destinations, setDestinations } ) {
 
     const [newTripData, setNewTripData] = useState(newTrip);
-
-    const tripUrl = "http://localhost:9292/trip";
     
     
     let navigate = useNavigate()
@@ -32,10 +30,14 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
             [e.target.name]: e.target.value})
     };
 
+    // function destinationLogic() {
+    //     const destination = 
+    // }
+
     
     function handleSubmit(e) {
         e.preventDefault();
-        fetch(tripUrl, {
+        fetch('http://localhost:9292/trips', {
             method: "POST", 
             headers: {
                 'Content-Type': 'application/json',
@@ -50,8 +52,6 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
             })
     }
 
-    console.log(newTrip);
-
     return (
 
         <div className="tripForm"> 
@@ -64,7 +64,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     className="customSelect"
                     placeholder="Select Traveler"
                     name="user_id"
-                    onChange={(e) => handleAddNewTripData(e.target.value)}
+                    onChange={handleAddNewTripData}
                 >
                     <option value="none">Select Traveler:</option>
                     {users.map((user) => (
@@ -77,11 +77,29 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 <label>
                 Destination:
                 <br/>
-                <select
+                <input
+                    id="city_name"
+                    name="city_name"
+                    type="text"
+                    placeholder="City Name"
+                    value={newTripData.trip_notes}
+                    onChange={handleAddNewTripData}
+                    >
+                </input>
+                <input
+                    id="country_name"
+                    name="country_name"
+                    type="text"
+                    placeholder="Country"
+                    value={newTripData.trip_notes}
+                    onChange={handleAddNewTripData}
+                    >
+                </input>
+                {/* <select
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
-                    onChange={(e) => handleAddNewTripData(e.target.value)}
+                    onChange={handleAddNewTripData}
                 >
                     <option value="none">Select Destination:</option>
                     {destinations.map((destination) => (
@@ -89,7 +107,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                             {destination.city_name} | {destination.country_name}
                     </option>
                     ))}
-                </select>
+                </select> */}
                 </label>
                 <label>
                 Start Date:
@@ -98,30 +116,35 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     id="start_date"
                     name="start_date"
                     type="date"
+                    onChange={handleAddNewTripData}
                 >
                 </input>
                 </label>
                 <label>
                 End Date:
                 <br/>
-                <input type="date">
+                <input 
+                    id="end_date"
+                    name="end_date"
+                    type="date"
+                    onChange={handleAddNewTripData}>
                 </input>
                 </label>
                 <label>
                 Trip Notes:
                 <br/>
                 <input
-                    className="tripNotes"
-                    type="text"
+                    id="trip_notes"
                     name="trip_notes"
+                    type="text"
                     placeholder="Trip Notes"
-                    // value={newUserData.password}
-                    // onChange={handleAddNewUser}
+                    value={newTripData.trip_notes}
+                    onChange={handleAddNewTripData}
                     >
                 </input>
                 </label>
                 <br/>
-                <button id="tripButton"type="submit">Click Me!</button>
+                <button id="tripButton"type="submit">Add Trip!</button>
                 <br/>
             </form>
         </div>
