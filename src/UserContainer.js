@@ -7,11 +7,12 @@ function UserContainer({ users }) {
 
   return (
 
-    <div className="userWrapper">
-      <ul className="list">
-        {userList}
-      </ul>
-    </div>
+      <div className="userWrapper">
+        <ul className="list">
+          {userList}
+        </ul>
+      </div>
+
     
   );
 }

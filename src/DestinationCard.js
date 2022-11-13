@@ -1,13 +1,13 @@
 import './App.css';
 
-function DestinationCard({ destination: { city_name, country_name, image_url, id }}) {
+function DestinationCard({ destination }) {
 
     return (
 
         <li className="destinationCard">
             {/* <img className="cardImage" src={image_url} alt={city_name} /> */}
-            <h3>{city_name}</h3>
-            <p>`I am found in {country_name}` </p>
+            <h3>{destination.destination_name}</h3>
+            <p>`I am found in {destination.destination_name}` </p>
         </li>
     );
 }

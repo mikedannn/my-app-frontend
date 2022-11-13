@@ -1,12 +1,13 @@
 import './App.css';
 
-function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destination: { city_name, country_name } } }) {
+function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destination } }) {
+    
     
 
     return (
         <div className="tripCard">
             <div className="cardHeader">
-                <h1>{user.full_name}'s trip to {city_name}, {country_name}!</h1>
+                <h1>{user.full_name}'s trip to {destination.destination_name}!</h1>
             </div>
             <div className="cardContainer">
                 <p className="tripNote">My Notes: {trip_notes}</p>
@@ -14,7 +15,6 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
             </div>
             <div className="cardButtons">
                 <button id="editBtn" ng-click="editItem (item)">✏️</button>
-                <br/>
                 <button id="deleteBtn" ng-click="deleteItem (item)">🗑</button>
             </div>
         </div>

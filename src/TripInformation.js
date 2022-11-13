@@ -4,9 +4,6 @@ import { useNavigate } from "react-router-dom";
 import TripCard from "./TripCard";
 import './App.css';
 
-
-
-
 const newTrip = {
     user_id: "",
     destination_id: "",
@@ -19,10 +16,9 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
 
     const [newTripData, setNewTripData] = useState(newTrip);
     
-    
-    let navigate = useNavigate()
+    let navigate = useNavigate();
     const handleSubmitTripClick = (e) => {
-      navigate.push(`/trips`)
+      navigate(`/trips`);
     };
 
     function handleAddNewTripData(e) {
@@ -30,11 +26,6 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
             [e.target.name]: e.target.value})
     };
 
-    // function destinationLogic() {
-    //     const destination = 
-    // }
-
-    
     function handleSubmit(e) {
         e.preventDefault();
         fetch('http://localhost:9292/trips', {
@@ -46,10 +37,11 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
         })
             .then((r) => r.json())
             .then((data) => {
-                setTrips((currentTrips) => [data, ...currentTrips]);
+                // setTrips((currentTrips) => [data, ...currentTrips]);
                 setNewTripData(newTrip);
                 handleSubmitTripClick();
             })
+        window.location.reload(false);
     }
 
     return (
@@ -65,6 +57,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     placeholder="Select Traveler"
                     name="user_id"
                     onChange={handleAddNewTripData}
+                    required
                 >
                     <option value="none">Select Traveler:</option>
                     {users.map((user) => (
@@ -77,37 +70,20 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 <label>
                 Destination:
                 <br/>
-                <input
-                    id="city_name"
-                    name="city_name"
-                    type="text"
-                    placeholder="City Name"
-                    value={newTripData.trip_notes}
-                    onChange={handleAddNewTripData}
-                    >
-                </input>
-                <input
-                    id="country_name"
-                    name="country_name"
-                    type="text"
-                    placeholder="Country"
-                    value={newTripData.trip_notes}
-                    onChange={handleAddNewTripData}
-                    >
-                </input>
-                {/* <select
+                <select
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
                     onChange={handleAddNewTripData}
+                    required
                 >
                     <option value="none">Select Destination:</option>
                     {destinations.map((destination) => (
                         <option key={destination.id} value={destination.id}>
-                            {destination.city_name} | {destination.country_name}
+                            {destination.destination_name}
                     </option>
                     ))}
-                </select> */}
+                </select>
                 </label>
                 <label>
                 Start Date:
@@ -117,6 +93,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     name="start_date"
                     type="date"
                     onChange={handleAddNewTripData}
+                    required
                 >
                 </input>
                 </label>
@@ -127,7 +104,9 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     id="end_date"
                     name="end_date"
                     type="date"
-                    onChange={handleAddNewTripData}>
+                    onChange={handleAddNewTripData}
+                    required
+                    >
                 </input>
                 </label>
                 <label>
@@ -140,6 +119,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     placeholder="Trip Notes"
                     value={newTripData.trip_notes}
                     onChange={handleAddNewTripData}
+                    required
                     >
                 </input>
                 </label>

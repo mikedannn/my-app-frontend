@@ -13,9 +13,9 @@ function TripContainer ({ users, trips, setTrips, destinations, setDestinations 
 
       <div>
         <TripInformation users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations}/>
-          <div className="listOfTrips">
-            {tripList}
-          </div>
+        <div className="listOfTrips">
+          {tripList}
+        </div>
       </div>
     )
   }

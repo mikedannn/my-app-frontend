@@ -22,7 +22,7 @@ function Home({ users, setUsers }) {
   function handleAddNewUser(e) {
     setNewUserData({...newUserData, 
       [e.target.name]: e.target.value})
-  }
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -62,6 +62,7 @@ function Home({ users, setUsers }) {
             placeholder="Full Name..."
             value={newUserData.full_name}
             onChange={handleAddNewUser}
+            required
             >
           </input>
         </label>
@@ -76,6 +77,7 @@ function Home({ users, setUsers }) {
             placeholder="Username..."
             value={newUserData.username}
             onChange={handleAddNewUser}
+            required
             >
           </input>
         </label>
@@ -90,6 +92,7 @@ function Home({ users, setUsers }) {
             placeholder="Password..."
             value={newUserData.password}
             onChange={handleAddNewUser}
+            required
             >
           </input>
         </label>

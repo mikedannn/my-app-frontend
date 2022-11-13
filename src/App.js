@@ -46,7 +46,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home users={users} setUsers={setUsers}/>}/>
           <Route exact path='/about' element={<About />}/>
-          <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers}/>}/>
+          <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers} />}/>
           <Route exact path='/trips' element={<TripContainer users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations}/>}/>
           <Route exact path='/destinations' element={<DestinationContainer destinations={destinations}/>}/>
         </Routes>
