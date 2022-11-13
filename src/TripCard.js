@@ -12,12 +12,6 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
         window.location.reload(false);
     }
 
-    // function handleDeleteTrip() {
-    //     fetch(`http://localhost:9292/trips/${id}`, {
-    //         method: "DELETE",
-    //     });
-    //   };
-
     return (
         <div className="tripCard" >
             <div className="cardHeader">

@@ -8,7 +8,11 @@ import TripInformation from './TripInformation';
 function TripContainer ({ users, trips, setTrips, destinations, setDestinations }) {
 
 
-    const tripList = trips.map((trip) => <TripCard key={trip.id} trip={trip} trips={trips} setTrips={setTrips}/>);
+    const tripList = trips.map((trip) => <TripCard 
+      key={trip.id} 
+      trip={trip} 
+      trips={trips} 
+      setTrips={setTrips}/>);
 
     return (
 
