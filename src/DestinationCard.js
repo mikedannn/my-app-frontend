@@ -2,13 +2,19 @@ import './App.css';
 
 function DestinationCard({ destination }) {
 
+    const userList = destination.users.map((user) => <p key={user.id}>
+        {user.username}
+    </p>);
+
     return (
 
-        <li className="destinationCard">
-            {/* <img className="cardImage" src={image_url} alt={city_name} /> */}
+        <div className="destinationCard">
             <h3>{destination.destination_name}</h3>
-            <p>`I am found in {destination.destination_name}` </p>
-        </li>
+            <div>
+                Users who have been here:
+                {userList}
+            </div>
+        </div>
     );
 }
 
