@@ -1,20 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import TripCard from "./TripCard";
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const newTrip = {
-    user_id: null,
-    destination_id: null,
-    start_date: null,
-    end_date: null,
-    trip_notes: ""
-}
 
-function TripInformation( { users, trips, setTrips, destinations, setDestinations } ) {
+const EditTrip = ({ users, trips, setTrips, destinations, setDestinations }) => {
+
+
+    const newTrip = {
+        user_id: null,
+        destination_id: null,
+        start_date: null,
+        end_date: null,
+        trip_notes: ""
+    }
+
 
     const [newTripData, setNewTripData] = useState(newTrip);
+    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
+
+    useEffect(async () => {
+        const resp = await fetch(`http://localhost:9292/trips/${id}`)
+        const data = await resp.json();
+        setNewTripData(data);
+        setLoading(false);
+    }, [])
+
     
     let navigate = useNavigate();
     const handleSubmitTripClick = (e) => {
@@ -37,17 +47,20 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
         })
             .then((r) => r.json())
             .then((data) => {
-                setTrips((currentTrips) => [data, ...currentTrips]);
+                // setTrips((currentTrips) => [data, ...currentTrips]);
                 setNewTripData(newTrip);
                 handleSubmitTripClick();
             })
+        window.location.reload(false);
     }
+
+    if(loading){return <h1>Loading... </h1>};
 
     return (
 
         <div className="tripForm"> 
             <form onSubmit={handleSubmit}>
-            <h2>Add Your Trip</h2>
+            <h2>Edit Trip</h2>
                 <label>
                 Traveler:
                 <br/>
@@ -123,11 +136,11 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                 </input>
                 </label>
                 <br/>
-                <button id="tripButton"type="submit">Add Trip!</button>
+                <button id="tripButton"type="submit">Edit Trip!</button>
                 <br/>
             </form>
         </div>
     );
   }
   
-  export default TripInformation;
+export default EditTrip;

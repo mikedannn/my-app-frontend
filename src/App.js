@@ -3,6 +3,7 @@ import About from './About';
 import NavBar from './NavBar';
 import UserContainer from './UserContainer';
 import TripContainer from './TripContainer';
+import EditTrip from './EditTrip';
 import DestinationContainer from './DestinationContainer';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -49,6 +50,7 @@ function App() {
           <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers} />}/>
           <Route exact path='/trips' element={<TripContainer users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations}/>}/>
           <Route exact path='/destinations' element={<DestinationContainer destinations={destinations}/>}/>
+          <Route exact path='/trips/:id/edit' element={<EditTrip users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations} />}/>
         </Routes>
       </div>
     </Router>

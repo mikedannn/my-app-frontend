@@ -12,8 +12,6 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
             const currentTrips = trips.filter(trip => trip.id !== id)
             setTrips(currentTrips)
         })
-        // .then(setTrips(trips));
-        // window.location.reload(false);
     }
     
 
