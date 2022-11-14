@@ -3,9 +3,9 @@ import './App.css';
 
 function Users({ user }) {
 
-    const destinationsList = user.destinations.map((destination) => <li key={destination.id}>
+    const destinationsList = user.destinations.map((destination) => <p key={destination.id}>
         {destination.destination_name}
-    </li>);
+    </p>);
 
     return (
         <div className="listItem" >
@@ -13,11 +13,9 @@ function Users({ user }) {
                 <h1>{user.full_name}</h1>
                 <p>Username: {user.username} </p>
                 <ul className="destinationList">
+                    Has Traveled:
                     {destinationsList}
                 </ul>
-
-                <button id="editBtn" ng-click="editItem (item)">✏️</button>
-                <button id="deleteBtn" ng-click="deleteItem (item)">🗑</button>
             </div>
             
         </div>
