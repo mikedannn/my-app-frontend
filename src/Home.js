@@ -62,6 +62,7 @@ function Home({ users, setUsers }) {
             placeholder="Full Name..."
             value={newUserData.full_name}
             onChange={handleAddNewUser}
+            autoFocus={true}
             required
             >
           </input>

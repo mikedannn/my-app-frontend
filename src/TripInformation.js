@@ -5,10 +5,10 @@ import TripCard from "./TripCard";
 import './App.css';
 
 const newTrip = {
-    user_id: null,
-    destination_id: null,
-    start_date: null,
-    end_date: null,
+    user_id: "",
+    destination_id: "",
+    start_date: "",
+    end_date: "",
     trip_notes: ""
 }
 
@@ -27,6 +27,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
     };
 
     function handleSubmit(e) {
+        alert('Trip added!')
         e.preventDefault();
         fetch('http://localhost:9292/trips', {
             method: "POST", 
@@ -38,8 +39,8 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
             .then((r) => r.json())
             .then((data) => {
                 setTrips((currentTrips) => [data, ...currentTrips]);
-                setNewTripData(newTrip);
                 handleSubmitTripClick();
+                setNewTripData(newTrip);
             })
     }
 
@@ -55,7 +56,9 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     className="customSelect"
                     placeholder="Select Traveler"
                     name="user_id"
+                    value={newTripData.user_id}
                     onChange={handleAddNewTripData}
+                    autoFocus={true}
                     required
                 >
                     <option value="none">Select Traveler:</option>
@@ -73,6 +76,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
+                    value={newTripData.destination_id}
                     onChange={handleAddNewTripData}
                     required
                 >
@@ -91,6 +95,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     id="start_date"
                     name="start_date"
                     type="date"
+                    value={newTripData.start_date}
                     onChange={handleAddNewTripData}
                     required
                 >
@@ -103,6 +108,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
                     id="end_date"
                     name="end_date"
                     type="date"
+                    value={newTripData.end_date}
                     onChange={handleAddNewTripData}
                     required
                     >
