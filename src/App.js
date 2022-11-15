@@ -50,7 +50,7 @@ function App() {
           <Route exact path='/users' element={<UserContainer users={users} setUsers={setUsers} />}/>
           <Route exact path='/trips' element={<TripContainer users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations}/>}/>
           <Route exact path='/destinations' element={<DestinationContainer destinations={destinations}/>}/>
-          <Route exact path='/trips/:id/edit' element={<EditTrip users={users} trips={trips} setTrips={setTrips} destinations={destinations} setDestinations={setDestinations} />}/>
+          <Route exact path='/trips/:id/edit' element={<EditTrip trips={trips} setTrip={setTrips} users={users} destinations={destinations}/>}/>
         </Routes>
       </div>
     </Router>

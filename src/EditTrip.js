@@ -1,74 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-
-
-const EditTrip = ({ users, trips, setTrips, destinations, setDestinations }) => {
-
-
-    const newTrip = {
-        user_id: null,
-        destination_id: null,
-        start_date: null,
-        end_date: null,
-        trip_notes: ""
-    }
-
-
-    const [newTripData, setNewTripData] = useState(newTrip);
-    const [loading, setLoading] = useState(true);
-    const { id } = useParams();
-
-    useEffect(async () => {
-        const resp = await fetch(`http://localhost:9292/trips/${id}`)
-        const data = await resp.json();
-        setNewTripData(data);
-        setLoading(false);
-    }, [])
-
-    
-    let navigate = useNavigate();
-    const handleSubmitTripClick = (e) => {
-      navigate(`/trips`);
-    };
-
-    function handleAddNewTripData(e) {
-        setNewTripData({...newTripData, 
-            [e.target.name]: e.target.value})
-    };
+function EditTrip({ users, destinations, trips, setTrips}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch('http://localhost:9292/trips', {
-            method: "POST", 
-            headers: {
-                'Content-Type': 'application/json',
-                },
-            body: JSON.stringify(newTripData)
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                // setTrips((currentTrips) => [data, ...currentTrips]);
-                setNewTripData(newTrip);
-                handleSubmitTripClick();
-            })
-        window.location.reload(false);
+        console.log('Clicked!')
+        // fetch(`http://localhost:9292/trips/${id}`, {
+        //     method: "PATCH", 
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     }, 
+        //     body: JSON.stringify()
+        // })
+        // .then((r) => r.json())
+        // .then((updatedTrip) => )
     }
 
-    if(loading){return <h1>Loading... </h1>};
-
     return (
-
+    
         <div className="tripForm"> 
             <form onSubmit={handleSubmit}>
-            <h2>Edit Trip</h2>
+            <h2>Edit Your Trip</h2>
                 <label>
-                Traveler:
+                Edit Traveler:
                 <br/>
                 <select
                     className="customSelect"
                     placeholder="Select Traveler"
                     name="user_id"
-                    onChange={handleAddNewTripData}
+                    // value={newTripData.user_id}
+                    // onChange={handleAddNewTripData}
+                    autoFocus={true}
                     required
                 >
                     <option value="none">Select Traveler:</option>
@@ -80,13 +40,14 @@ const EditTrip = ({ users, trips, setTrips, destinations, setDestinations }) => 
                 </select>
                 </label>
                 <label>
-                Destination:
+                Edit Destination:
                 <br/>
                 <select
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
-                    onChange={handleAddNewTripData}
+                    // value={newTripData.destination_id}
+                    // onChange={handleAddNewTripData}
                     required
                 >
                     <option value="none">Select Destination:</option>
@@ -98,39 +59,41 @@ const EditTrip = ({ users, trips, setTrips, destinations, setDestinations }) => 
                 </select>
                 </label>
                 <label>
-                Start Date:
+                Edit Start Date:
                 <br/>
                 <input 
                     id="start_date"
                     name="start_date"
                     type="date"
-                    onChange={handleAddNewTripData}
+                    // value={newTripData.start_date}
+                    // onChange={handleAddNewTripData}
                     required
                 >
                 </input>
                 </label>
                 <label>
-                End Date:
+                Edit End Date:
                 <br/>
                 <input 
                     id="end_date"
                     name="end_date"
                     type="date"
-                    onChange={handleAddNewTripData}
+                    // value={newTripData.end_date}
+                    // onChange={handleAddNewTripData}
                     required
                     >
                 </input>
                 </label>
                 <label>
-                Trip Notes:
+                Edit Trip Notes:
                 <br/>
                 <input
                     id="trip_notes"
                     name="trip_notes"
                     type="text"
                     placeholder="Trip Notes"
-                    value={newTripData.trip_notes}
-                    onChange={handleAddNewTripData}
+                    // value={newTripData.trip_notes}
+                    // onChange={handleAddNewTripData}
                     required
                     >
                 </input>
@@ -140,7 +103,8 @@ const EditTrip = ({ users, trips, setTrips, destinations, setDestinations }) => 
                 <br/>
             </form>
         </div>
+
     );
-  }
-  
+}
+
 export default EditTrip;

@@ -1,4 +1,5 @@
 import './App.css';
+import { NavLink } from 'react-router-dom';
 
 function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destination }, setTrips, trips }) {
 
@@ -25,7 +26,7 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
                 <p>Taken by: {user.username}</p>
             </div>
             <div className="cardButtons">
-                {/* <button id="editBtn" ng-click="editItem (item)">✏️</button> */}
+                <button><NavLink to={`/trips/${id}/edit`}>✏️</NavLink></button>
                 <button id="deleteBtn" onClick={handleDeleteTrip}>🗑</button>
             </div>
         </div>
