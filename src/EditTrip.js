@@ -1,4 +1,28 @@
+import React, {useEffect, useState} from 'react';
+import { useParams, useNavigate } from "react-router-dom";
+
+ const updatedTrip = {
+        user_id: "",
+        destination_id: "",
+        start_date: "",
+        end_date: "",
+        trip_notes: ""
+    }
+
 function EditTrip({ users, destinations, trips, setTrips}) {
+
+    let {id} = useParams();
+    const [tripData, setTripData] = useState([]);
+    const [updatedTripData, setUpdatedTripData] = useState(updatedTrip)
+
+
+    useEffect(() => {
+        fetch(`http://localhost:9292/trips/${id}`)
+        .then((resp) => resp.json())
+        .then(setTripData);
+        console.log(tripData)
+    }, [id])
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -26,7 +50,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     className="customSelect"
                     placeholder="Select Traveler"
                     name="user_id"
-                    // value={newTripData.user_id}
+                    value={tripData.user_id}
                     // onChange={handleAddNewTripData}
                     autoFocus={true}
                     required
@@ -46,7 +70,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
-                    // value={newTripData.destination_id}
+                    value={tripData.destination_id}
                     // onChange={handleAddNewTripData}
                     required
                 >
@@ -65,7 +89,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     id="start_date"
                     name="start_date"
                     type="date"
-                    // value={newTripData.start_date}
+                    // value={tripData.start_date}
                     // onChange={handleAddNewTripData}
                     required
                 >
@@ -78,7 +102,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     id="end_date"
                     name="end_date"
                     type="date"
-                    // value={newTripData.end_date}
+                    // value={tripData.end_date}
                     // onChange={handleAddNewTripData}
                     required
                     >
@@ -92,7 +116,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     name="trip_notes"
                     type="text"
                     placeholder="Trip Notes"
-                    // value={newTripData.trip_notes}
+                    value={tripData.trip_notes}
                     // onChange={handleAddNewTripData}
                     required
                     >

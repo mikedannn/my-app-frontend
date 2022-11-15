@@ -10,6 +10,7 @@ function TripContainer ({ users, trips, setTrips, destinations, setDestinations 
 
     const tripList = trips.map((trip) => <TripCard 
       key={trip.id} 
+      id={trip.id}
       trip={trip} 
       trips={trips} 
       setTrips={setTrips}/>);
