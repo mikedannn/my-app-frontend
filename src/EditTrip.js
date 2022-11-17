@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 
- const updatedTrip = {
+
+function EditTrip({ users, destinations, trips, setTrips}) {
+
+    const updatedTrip = {
         user_id: "",
         destination_id: "",
         start_date: "",
@@ -9,33 +12,43 @@ import { useParams, useNavigate } from "react-router-dom";
         trip_notes: ""
     }
 
-function EditTrip({ users, destinations, trips, setTrips}) {
-
     let {id} = useParams();
-    const [tripData, setTripData] = useState([]);
+    // const [tripData, setTripData] = useState([]);
     const [updatedTripData, setUpdatedTripData] = useState(updatedTrip)
 
+    let navigate = useNavigate();
+    const handleSubmitTripClick = (e) => {
+      navigate(`/trips`);
+    };
 
     useEffect(() => {
         fetch(`http://localhost:9292/trips/${id}`)
         .then((resp) => resp.json())
-        .then(setTripData);
-        console.log(tripData)
+        .then((data) => setUpdatedTripData(data));
     }, [id])
+
+    function handleAddUpdatedTripData(e) {
+        setUpdatedTripData({...updatedTripData, 
+            [e.target.name]: e.target.value})
+    };
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('Clicked!')
-        // fetch(`http://localhost:9292/trips/${id}`, {
-        //     method: "PATCH", 
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     }, 
-        //     body: JSON.stringify()
-        // })
-        // .then((r) => r.json())
-        // .then((updatedTrip) => )
+        console.log(updatedTripData)
+        fetch(`http://localhost:9292/trips/${id}`, {
+            method: "PATCH", 
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(updatedTripData),
+        })
+        .then((r) => r.json())
+        .then((data) => {
+            setUpdatedTripData(data)
+            handleSubmitTripClick();
+        })
+        .catch((err) => console.log('error: ', err))
     }
 
     return (
@@ -50,14 +63,14 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     className="customSelect"
                     placeholder="Select Traveler"
                     name="user_id"
-                    value={tripData.user_id}
-                    // onChange={handleAddNewTripData}
+                    value={updatedTripData.user_id}
+                    onChange={handleAddUpdatedTripData}
                     autoFocus={true}
                     required
                 >
                     <option value="none">Select Traveler:</option>
                     {users.map((user) => (
-                        <option key={user.id} value={user.id}>
+                        <option key={`user${user.id}`} value={user.id}>
                             {user.full_name} | {user.username}
                     </option>
                     ))}
@@ -70,13 +83,13 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     className="customSelect"
                     placeholder="Select Destination"
                     name="destination_id"
-                    value={tripData.destination_id}
-                    // onChange={handleAddNewTripData}
+                    value={updatedTripData.destination_id}
+                    onChange={handleAddUpdatedTripData}
                     required
                 >
                     <option value="none">Select Destination:</option>
                     {destinations.map((destination) => (
-                        <option key={destination.id} value={destination.id}>
+                        <option key={`destination${destination.id}`} value={destination.id}>
                             {destination.destination_name}
                     </option>
                     ))}
@@ -89,8 +102,8 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     id="start_date"
                     name="start_date"
                     type="date"
-                    // value={tripData.start_date}
-                    // onChange={handleAddNewTripData}
+                    value={updatedTripData.start_date}
+                    onChange={handleAddUpdatedTripData}
                     required
                 >
                 </input>
@@ -102,8 +115,8 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     id="end_date"
                     name="end_date"
                     type="date"
-                    // value={tripData.end_date}
-                    // onChange={handleAddNewTripData}
+                    value={updatedTripData.end_date}
+                    onChange={handleAddUpdatedTripData}
                     required
                     >
                 </input>
@@ -116,8 +129,8 @@ function EditTrip({ users, destinations, trips, setTrips}) {
                     name="trip_notes"
                     type="text"
                     placeholder="Trip Notes"
-                    value={tripData.trip_notes}
-                    // onChange={handleAddNewTripData}
+                    value={updatedTripData.trip_notes}
+                    onChange={handleAddUpdatedTripData}
                     required
                     >
                 </input>
