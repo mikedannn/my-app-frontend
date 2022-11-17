@@ -26,8 +26,8 @@ function TripCard({ trip: { id, trip_notes, start_date, end_date, user, destinat
                 <p>Taken by: {user.username}</p>
             </div>
             <div className="cardButtons">
-                <button><NavLink to={`/trips/${id}/edit`}>✏️</NavLink></button>
-                <button id="deleteBtn" onClick={handleDeleteTrip}>🗑</button>
+                <button id="tripCardButton" ><NavLink to={`/trips/${id}/edit`}>Edit Trip!</NavLink></button>
+                <button id="tripCardButton" onClick={handleDeleteTrip}>Delete Trip!</button>
             </div>
         </div>
     );

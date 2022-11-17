@@ -13,12 +13,12 @@ function EditTrip({ users, destinations, trips, setTrips}) {
     }
 
     let {id} = useParams();
-    // const [tripData, setTripData] = useState([]);
     const [updatedTripData, setUpdatedTripData] = useState(updatedTrip)
 
     let navigate = useNavigate();
     const handleSubmitTripClick = (e) => {
-      navigate(`/trips`);
+        navigate(`/trips`);
+        window.location.reload();
     };
 
     useEffect(() => {
@@ -35,7 +35,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(updatedTripData)
+        alert('Trip updated!')
         fetch(`http://localhost:9292/trips/${id}`, {
             method: "PATCH", 
             headers: {
@@ -45,7 +45,7 @@ function EditTrip({ users, destinations, trips, setTrips}) {
         })
         .then((r) => r.json())
         .then((data) => {
-            setUpdatedTripData(data)
+            setUpdatedTripData(data);
             handleSubmitTripClick();
         })
         .catch((err) => console.log('error: ', err))
