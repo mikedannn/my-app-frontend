@@ -9,7 +9,7 @@ function DestinationCard({ destination }) {
     return (
 
         <div className="destinationCard">
-            <h3>{destination.destination_name}</h3>
+            <h3 className="destinationCardHeading">{destination.destination_name}</h3>
             <div>
                 Users who have been here:
                 {userList}

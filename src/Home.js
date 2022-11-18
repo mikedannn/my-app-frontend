@@ -9,14 +9,13 @@ const newUser = {
   password: ""
 }
 
-
 function Home({ users, setUsers }) {
 
   const [newUserData, setNewUserData] = useState(newUser)
 
   let navigate = useNavigate();
   const handleCreateUserClick = (e) => {
-    navigate('/users');
+    navigate('/trips');
   };
 
   function handleAddNewUser(e) {
@@ -46,64 +45,64 @@ function Home({ users, setUsers }) {
   return (
 
     <div>
+        <h1 className="welcomeHeader">Welcome to The Travel Log! Browse user trips and post your own to inspire!</h1>
+      
         <img className="travelPicture" src="plane-pic.jpg"/>
 
         <div>
-          <h1>Welcome to The Travel Log! Browse other users trips and post your own to inspire!</h1>
+          <form  onSubmit={handleSubmit} className="loginForm">
           <h2>Create your user profile here!</h2>
-
-        <form  onSubmit={handleSubmit} className="loginForm">
-        <label>
-          Full Name:
-          <input id="full_name"
-            className="full_name"
-            type="text"
-            name="full_name"
-            placeholder="Full Name..."
-            value={newUserData.full_name}
-            onChange={handleAddNewUser}
-            autoFocus={true}
-            required
-            >
-          </input>
-        </label>
-        <br/>
-        <br/>
-        <label>
-          Username:
-          <input
-            className = "username"
-            type="text"
-            name="username"
-            placeholder="Username..."
-            value={newUserData.username}
-            onChange={handleAddNewUser}
-            required
-            >
-          </input>
-        </label>
-        <br/>
-        <br/>
-        <label>
-          Password:
-          <input
-            className="password"
-            type="text"
-            name="password"
-            placeholder="Password..."
-            value={newUserData.password}
-            onChange={handleAddNewUser}
-            required
-            >
-          </input>
-        </label>
-        <br/>
-        <input id="formButton" type="submit" value= "Create User"></input>
-        <br/>
-        <br/>
-        <br/>
-      </form>
-      </div>
+          <label>
+            Full Name:
+            <input id="full_name"
+              className="full_name"
+              type="text"
+              name="full_name"
+              placeholder="Full Name..."
+              value={newUserData.full_name}
+              onChange={handleAddNewUser}
+              autoFocus={true}
+              required
+              >
+            </input>
+          </label>
+          <br/>
+          <br/>
+          <label>
+            Username:
+            <input
+              className = "username"
+              type="text"
+              name="username"
+              placeholder="Username..."
+              value={newUserData.username}
+              onChange={handleAddNewUser}
+              required
+              >
+            </input>
+          </label>
+          <br/>
+          <br/>
+          <label>
+            Password:
+            <input
+              className="password"
+              type="password"
+              name="password"
+              placeholder="Password..."
+              value={newUserData.password}
+              onChange={handleAddNewUser}
+              required
+              >
+            </input>
+          </label>
+          <br/>
+          <input id="formButton" type="submit" value= "Create User"></input>
+          <br/>
+          <br/>
+          <br/>
+          </form>
+        </div>
 
     </div>
   );

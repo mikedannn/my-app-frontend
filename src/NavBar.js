@@ -10,7 +10,7 @@ function NavBar() {
 
   return (
     <nav>
-      <h1>Travel Log</h1>
+      <h1><Link className="homeLink" to='/'>Travel Log</Link></h1>
         <ul className='nav-links'>
             <Link style={NavStyle} to='/about'>
                 <li>About</li>

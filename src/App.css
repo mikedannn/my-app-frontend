@@ -49,6 +49,13 @@ nav {
   list-style: none;
 }
 
+.welcomeHeader {
+  color: black;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 35px;
+}
+
 .travelPicture {
   width: 100%;
   float: left;
@@ -64,13 +71,13 @@ nav {
   float: left;
   padding-top: 75px;
   padding-left: 50px;
-  width:  700px;
-  height: 500px;
-  object-fit: cover;
+  width:  750px;
+  height: 650px;
+  object-fit: auto;
 }
 
 .loginForm {
-  padding-top: 150px;
+  padding-top: 65px;
   padding-bottom: 200px;
   text-align: center;
   width: 40%;
@@ -171,7 +178,6 @@ label {
   padding-right: 5px;
   margin-left: 10px;
   margin-right: 10px;
-
 }
 
 #tripButton {
@@ -188,12 +194,51 @@ label {
   margin: 4px 0;
 }
 
+.listOfTrips {
+  padding-top: 25px;
+  padding-left: 230px;
+}
+
+.tripCard {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border: 5px rgba(247, 169, 59, 0.3) solid;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 15px;
+}
+
+.tripFormHeading {
+  font-size: 32px;
+}
+
+.editLink {
+  color: white;
+  text-decoration: none;
+}
+
+.homeLink {
+  color: white;
+  text-decoration: none;
+}
+
+.tripForm {
+  padding-top: 50px;
+  text-align: left;
+  width: 90%;
+  padding-left: 200px;
+  float: center
+}
+
 .aboutDescription {
   text-align: left;
-  padding-top: 100px;
-  margin-left: 300px;
-  margin-right: 300px;
-  font-size: 20px;
+  padding-top: 150px;
+  padding-left: 500px;
+  margin-left: 400px;
+  margin-right: 200px;
+  font-size: 22px;
   word-spacing: auto;
   text-indent: 40px;
   text-justify: newspaper;
@@ -202,45 +247,29 @@ label {
 .aboutDescription2 {
   text-align: left;
   padding-top: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-  font-size: 20px;
+  padding-left: 500px;
+  margin-left: 400px;
+  margin-right: 200px;
+  font-size: 22px;
   word-spacing: auto;
   text-justify: newspaper;
 }
 
-.tripForm {
-  padding-top: 50px;
-  text-align: left;
-  width: 90%;
-  padding-left: 125px;
-  float: center
-}
-
 .destinationCard {
-  width: 70%;
+  width: 700px;
   display: flex;
   flex-direction: column;
   margin-right: 6px;
   margin-left: 6px;
   padding: 40px;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background: rgba(252, 149, 124, 0.3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.listOfTrips {
-  padding-top: 25px;
-  padding-left: 125px;
-}
-
-.tripCard {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  border: 5px white solid;
-  padding-bottom: 30px;
-  padding-top: 30px
+.destinationCardHeading {
+  font-size: 30px;
 }
 
 .cardHeader {
@@ -258,25 +287,38 @@ label {
 
 
 .userWrapper {
-  max-width: 700px;
-  margin: 50px auto;
+  max-width: 750px;
+  padding-top: 60px;
+  margin: auto;
+  text-align: center auto;
 }
 
 .list {
-  background: rgba(252, 149, 124, 0.3);
-  border-radius: 2px;
+  border-radius: 5px;
   list-style: none;
   padding: 10px 20px;
-  width: 600px;
+  display: grid;
 }
 
 .listItem {
-  display: flex;
+  background: rgba(252, 149, 124, 0.3);
   margin: 10px;
-  width: 600px;
+  width: 700px;
   padding-bottom: 5px;
   padding-top: 5px;
+  padding-left: 30px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.listItemHeading {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.listItemUsernameTag {
+  color: black;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .cardButtons {

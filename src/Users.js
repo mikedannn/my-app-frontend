@@ -1,21 +1,15 @@
 
 import './App.css';
 
-function Users({ user }) {
 
-    const destinationsList = user.destinations.map((destination) => <p key={destination.id}>
-        {destination.destination_name}
-    </p>);
+function Users({ user: { id, full_name, username } }) {
+    
 
     return (
         <div className="listItem" >
             <div className="listItemContent">
-                <h1>{user.full_name}</h1>
-                <p>Username: {user.username} </p>
-                <ul className="destinationList">
-                    Has Traveled:
-                    {destinationsList}
-                </ul>
+                <h1 className="listItemHeading">{full_name}</h1>
+                <p className="listItemUsernameTag" >Username: {username} </p>
             </div>
             
         </div>

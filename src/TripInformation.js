@@ -48,7 +48,7 @@ function TripInformation( { users, trips, setTrips, destinations, setDestination
 
         <div className="tripForm"> 
             <form onSubmit={handleSubmit}>
-            <h2>Add Your Trip</h2>
+            <h2 className="tripFormHeading">Add Your Trip</h2>
                 <label>
                 Traveler:
                 <br/>

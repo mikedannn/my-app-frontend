@@ -5,7 +5,14 @@ function DestinationContainer ({ destinations }) {
     
     const destinationList = destinations.map((destination) => <DestinationCard key={destination.id} destination={destination} />);
   
-    return destinationList;
+    return (
+
+      <div className="userWrapper">
+        <ul className="list">
+          {destinationList}
+        </ul>
+      </div>
+    );
   }
   
   export default DestinationContainer;
