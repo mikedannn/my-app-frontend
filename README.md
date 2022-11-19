@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+## The Travel Log
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Phase 3 React / Ruby / Sinatra Project
 
-## Available Scripts
 
-In the project directory, you can run:
+This web application was designed to bring travel enthusiasts together to document trips they have taken to various destinations including their own personalized notes on each trip. 
 
-### `npm start`
+### Application Features
+* Allows the user to `create` a user profile upon visiting the home page
+* User can view a list of other users of the application
+* Create a new trip with `custom information` including the user, destination, start and end dates, and notes on the trip
+* `Edit` trip information and `delete` a trip if needed
+* View a list of destinations including which users have been to each place
+* Read about application functionality on the `About` page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Using The App
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Create a New User Profile upon visiting the landing page.
 
-### `npm test`
+![Home Page](/public/HomePage.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Browse a page of current Users on the web application.
 
-### `npm run build`
+![Users Page](/public/Users.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Read about the goals of the application on the `About` Page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![About Page](/public/AboutPage.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a New Trip using the controlled form on the `Trips` Page.
 
-### `npm run eject`
+![Trip Form](/public/TripForm.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`Edit` trip information or `Delete` a trip altogether using the buttons on each trip card. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Trip Cards](/public/Trips.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Browse through destinations traveled on the `Destinations` Page. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Destinations Page](/public/Destinations.png)
 
-## Learn More
+> This is a single-page React application created using Ruby and Sinatra.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
